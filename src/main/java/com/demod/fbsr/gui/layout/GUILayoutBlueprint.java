@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
 import java.util.stream.Collectors;
 
 import com.demod.dcba.CommandReporting;
@@ -24,7 +22,7 @@ import com.demod.factorio.prototype.ItemPrototype;
 import com.demod.fbsr.EntityRendererFactory;
 import moe.mukjep.fbsr.render.RenderRequest;
 import com.demod.fbsr.RenderUtils;
-import com.demod.fbsr.bs.BSBlueprint;
+import moe.mukjep.fbsr.bs.types.BSBlueprint;
 import com.demod.fbsr.fp.FPSprite;
 import com.demod.fbsr.gui.GUIBox;
 import com.demod.fbsr.gui.GUISize;
@@ -302,7 +300,7 @@ public class GUILayoutBlueprint {
 
 	private void drawTitleBar(Graphics2D g, GUIBox bounds) {
 		GUILabel lblTitle = new GUILabel(bounds.shrinkBottom(8).shrinkLeft(24),
-				blueprint.label.orElse("Untitled Blueprint"), GUIStyle.FONT_BP_BOLD.deriveFont(24f),
+				blueprint.getLabel().orElse("Untitled Blueprint"), GUIStyle.FONT_BP_BOLD.deriveFont(24f),
 				GUIStyle.FONT_BP_COLOR, Align.CENTER_LEFT);
 		lblTitle.render(g);
 

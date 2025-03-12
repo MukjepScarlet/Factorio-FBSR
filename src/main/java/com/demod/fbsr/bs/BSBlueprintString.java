@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 import java.util.zip.InflaterInputStream;
 
+import moe.mukjep.fbsr.bs.types.BSBlueprint;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
@@ -95,8 +96,8 @@ public class BSBlueprintString {
 	public Optional<String> findFirstLabel() {
 		if (blueprint.isPresent()) {
 			BSBlueprint bp = blueprint.get();
-			if (bp.label.isPresent()) {
-				return bp.label;
+			if (bp.getLabel().isPresent()) {
+				return bp.getLabel();
 			}
 		}
 		if (blueprintBook.isPresent()) {

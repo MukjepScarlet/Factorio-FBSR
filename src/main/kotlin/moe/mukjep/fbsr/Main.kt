@@ -3,7 +3,7 @@
 package moe.mukjep.fbsr
 
 import com.demod.dcba.CommandReporting
-import com.demod.fbsr.bs.BSBlueprint
+import moe.mukjep.fbsr.bs.types.BSBlueprint
 import com.demod.fbsr.bs.BSBlueprintString
 import moe.mukjep.fbsr.render.RenderRequest
 import java.io.File

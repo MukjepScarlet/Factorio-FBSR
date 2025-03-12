@@ -10,14 +10,12 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import com.demod.dcba.CommandReporting;
 import moe.mukjep.fbsr.render.RenderRequest;
-import com.demod.fbsr.bs.BSBlueprint;
+import moe.mukjep.fbsr.bs.types.BSBlueprint;
 import com.demod.fbsr.bs.BSBlueprintBook;
 import com.demod.fbsr.gui.GUIBox;
 import com.demod.fbsr.gui.GUISize;
@@ -297,7 +295,7 @@ public class GUILayoutBook {
 
 			int rows = (result.getImage().getHeight() + BP_CELL_SIZE.height - 1) / BP_CELL_SIZE.height;
 			int cols = (result.getImage().getWidth() + BP_CELL_SIZE.width - 1) / BP_CELL_SIZE.width;
-			blocks.add(new ImageBlock(rows, cols, blueprint.label, result.getImage()));
+			blocks.add(new ImageBlock(rows, cols, blueprint.getLabel(), result.getImage()));
 		}
 
 		packBounds = packBlocks(blocks, DISCORD_IMAGE_RATIO);

@@ -8,6 +8,7 @@ import java.util.OptionalInt;
 import java.util.function.Consumer;
 
 import moe.mukjep.fbsr.bs.base.MapVersion;
+import moe.mukjep.fbsr.bs.types.BSBlueprint;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
