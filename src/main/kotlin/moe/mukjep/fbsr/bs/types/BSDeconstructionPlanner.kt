@@ -7,7 +7,7 @@ import moe.mukjep.fbsr.bs.base.MapVersion
 import org.json.JSONObject
 import java.util.*
 
-class BSDeconstructionPlanner(json: JSONObject) {
+class BSDeconstructionPlanner(json: JSONObject) : BSBase() {
     val label: Optional<String> = BSUtils.optString(json, "label")
     val version: MapVersion = MapVersion(json.getInt("version").toLong())
     val description: Optional<String>

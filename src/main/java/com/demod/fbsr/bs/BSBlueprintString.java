@@ -8,6 +8,7 @@ import java.util.*;
 import java.util.zip.InflaterInputStream;
 
 import moe.mukjep.fbsr.bs.types.BSBlueprint;
+import moe.mukjep.fbsr.bs.types.BSBlueprintBook;
 import moe.mukjep.fbsr.bs.types.BSDeconstructionPlanner;
 import moe.mukjep.fbsr.bs.types.BSUpgradePlanner;
 import org.json.JSONObject;
@@ -88,7 +89,7 @@ public class BSBlueprintString {
 				ret.add(bs.blueprint.get());
 			}
 			if (bs.blueprintBook.isPresent()) {
-				bs.blueprintBook.get().blueprints.stream().forEach(work::add);
+				bs.blueprintBook.get().getBlueprints().stream().forEach(work::add);
 			}
 		}
 
@@ -103,7 +104,7 @@ public class BSBlueprintString {
 			}
 		}
 		if (blueprintBook.isPresent()) {
-			return blueprintBook.get().blueprints.stream().flatMap(bs -> bs.findFirstLabel().stream()).findFirst();
+			return blueprintBook.get().getBlueprints().stream().flatMap(bs -> bs.findFirstLabel().stream()).findFirst();
 		}
 		return Optional.empty();
 	}

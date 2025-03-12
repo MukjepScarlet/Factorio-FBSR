@@ -16,7 +16,7 @@ import java.util.stream.IntStream;
 import com.demod.dcba.CommandReporting;
 import moe.mukjep.fbsr.render.RenderRequest;
 import moe.mukjep.fbsr.bs.types.BSBlueprint;
-import com.demod.fbsr.bs.BSBlueprintBook;
+import moe.mukjep.fbsr.bs.types.BSBlueprintBook;
 import com.demod.fbsr.gui.GUIBox;
 import com.demod.fbsr.gui.GUISize;
 import com.demod.fbsr.gui.GUIStyle;
@@ -254,7 +254,7 @@ public class GUILayoutBook {
 
 	private void drawTitleBar(Graphics2D g, GUIBox bounds) {
 		GUILabel lblTitle = new GUILabel(bounds.shrinkBottom(8).shrinkLeft(24),
-				book.label.orElse("Untitled Blueprint Book"), GUIStyle.FONT_BP_BOLD.deriveFont(24f),
+				book.getLabel().orElse("Untitled Blueprint Book"), GUIStyle.FONT_BP_BOLD.deriveFont(24f),
 				GUIStyle.FONT_BP_COLOR, Align.CENTER_LEFT);
 		lblTitle.render(g);
 
