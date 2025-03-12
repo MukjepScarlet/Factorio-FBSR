@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.function.Function;
 
+import moe.mukjep.fbsr.render.Layer;
 import org.luaj.vm2.LuaValue;
 
 import com.demod.factorio.Utils;

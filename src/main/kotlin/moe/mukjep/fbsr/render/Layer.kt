@@ -1,10 +1,7 @@
-package com.demod.fbsr;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
+package moe.mukjep.fbsr.render;
 
 // Copied from https://lua-api.factorio.com/latest/types/RenderLayer.html
-public enum Layer {
+enum class Layer {
 	ZERO, //
 	BACKGROUND_TRANSITIONS, //
 	UNDER_TILES, //
@@ -91,24 +88,12 @@ public enum Layer {
 	CURSOR,//
 	;
 
-	private static Map<String, Layer> byKey = new LinkedHashMap<>();
-	static {
-		for (Layer layer : values()) {
-			byKey.put(layer.key, layer);
-		}
-	}
+	val key = name.lowercase().replace('_', '-')
 
-	public static Layer fromKey(String key) {
-		return byKey.get(key);
-	}
+	companion object {
+		private val keyMap = entries.associateBy { it.key }
 
-	private final String key;
-
-	private Layer() {
-		this.key = name().toLowerCase().replace('_', '-');
-	}
-
-	public String getKey() {
-		return key;
+		@JvmStatic
+		fun fromKey(key: String): Layer? = keyMap[key]
 	}
 }

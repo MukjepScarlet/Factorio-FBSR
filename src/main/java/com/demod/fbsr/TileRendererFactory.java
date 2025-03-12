@@ -27,6 +27,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import moe.mukjep.fbsr.render.Layer;
 import moe.mukjep.fbsr.render.TileRenderingTuple;
 import org.luaj.vm2.LuaValue;
 

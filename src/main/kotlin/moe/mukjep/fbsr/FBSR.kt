@@ -10,10 +10,7 @@ import com.demod.fbsr.bs.*
 import com.demod.fbsr.entity.ErrorRendering
 import com.demod.fbsr.gui.GUIStyle
 import com.google.common.collect.Table
-import moe.mukjep.fbsr.render.EntityRenderingTuple
-import moe.mukjep.fbsr.render.RenderRequest
-import moe.mukjep.fbsr.render.RenderResult
-import moe.mukjep.fbsr.render.TileRenderingTuple
+import moe.mukjep.fbsr.render.*
 import org.json.JSONException
 import java.awt.*
 import java.awt.geom.*

@@ -21,7 +21,7 @@ import com.demod.factorio.Utils;
 import com.demod.factorio.prototype.ItemPrototype;
 import com.demod.fbsr.BSUtils;
 import com.demod.fbsr.Direction;
-import com.demod.fbsr.Layer;
+import moe.mukjep.fbsr.render.Layer;
 import com.demod.fbsr.RenderUtils;
 import com.demod.fbsr.Renderer;
 import com.demod.fbsr.Sprite;

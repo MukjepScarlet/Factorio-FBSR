@@ -1,5 +1,7 @@
 package com.demod.fbsr;
 
+import moe.mukjep.fbsr.render.Layer;
+
 import java.util.List;
 
 public class SpritesWithLayer {

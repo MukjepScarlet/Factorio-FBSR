@@ -11,7 +11,7 @@ import java.util.function.Consumer;
 import com.demod.factorio.DataTable;
 import com.demod.factorio.prototype.EntityPrototype;
 import com.demod.fbsr.EntityRendererFactory;
-import com.demod.fbsr.Layer;
+import moe.mukjep.fbsr.render.Layer;
 import com.demod.fbsr.Renderer;
 import com.demod.fbsr.WirePoints.WirePoint;
 import com.demod.fbsr.WorldMap;

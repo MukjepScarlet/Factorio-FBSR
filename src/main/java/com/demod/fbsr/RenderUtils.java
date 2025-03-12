@@ -20,6 +20,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import moe.mukjep.fbsr.FBSR;
+import moe.mukjep.fbsr.render.Layer;
 import org.json.JSONObject;
 
 import com.demod.factorio.DataTable;

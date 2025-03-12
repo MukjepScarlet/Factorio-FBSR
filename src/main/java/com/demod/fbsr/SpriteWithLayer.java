@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.common.collect.ArrayListMultimap;
+import moe.mukjep.fbsr.render.Layer;
 
 public class SpriteWithLayer {
 	public static List<SpritesWithLayer> groupByLayer(List<SpriteWithLayer> sprites) {

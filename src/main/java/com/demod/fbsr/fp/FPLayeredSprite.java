@@ -8,7 +8,7 @@ import java.util.function.BiConsumer;
 import org.luaj.vm2.LuaValue;
 
 import com.demod.fbsr.FPUtils;
-import com.demod.fbsr.Layer;
+import moe.mukjep.fbsr.render.Layer;
 import com.demod.fbsr.Sprite;
 import com.demod.fbsr.SpriteWithLayer;
 

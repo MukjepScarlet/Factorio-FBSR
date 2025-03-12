@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 
 import moe.mukjep.fbsr.render.EntityRenderingTuple;
 import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
+import moe.mukjep.fbsr.render.Layer;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
