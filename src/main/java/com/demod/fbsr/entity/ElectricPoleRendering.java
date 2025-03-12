@@ -7,12 +7,12 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import moe.mukjep.fbsr.render.EntityRenderingTuple;
 import org.luaj.vm2.LuaValue;
 
 import com.demod.factorio.DataTable;
 import com.demod.factorio.prototype.EntityPrototype;
 import com.demod.fbsr.EntityRendererFactory;
-import com.demod.fbsr.FBSR.EntityRenderingTuple;
 import com.demod.fbsr.FPUtils;
 import com.demod.fbsr.Layer;
 import com.demod.fbsr.RenderUtils;
@@ -86,7 +86,7 @@ public class ElectricPoleRendering extends EntityRendererFactory<BSEntity> {
 	public double initWireConnector(Consumer<Renderer> register, BSEntity entity, List<EntityRenderingTuple> wired) {
 		BSPosition p1 = entity.position;
 		List<Point2D.Double> points = wired.stream().map(t -> {
-			BSPosition p2 = t.entity.position;
+			BSPosition p2 = t.getEntity().position;
 			return new Point2D.Double(p2.x - p1.x, p2.y - p1.y);
 		}).collect(Collectors.toList());
 		double orientation = computePrincipalOrientation(points);

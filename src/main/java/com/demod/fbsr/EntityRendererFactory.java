@@ -24,6 +24,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import moe.mukjep.fbsr.render.EntityRenderingTuple;
 import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
@@ -32,7 +33,6 @@ import com.demod.factorio.DataTable;
 import com.demod.factorio.FactorioData;
 import com.demod.factorio.prototype.EntityPrototype;
 import com.demod.factorio.prototype.RecipePrototype;
-import com.demod.fbsr.FBSR.EntityRenderingTuple;
 import com.demod.fbsr.WirePoints.WirePoint;
 import com.demod.fbsr.WorldMap.BeaconSource;
 import com.demod.fbsr.bs.BSEntity;

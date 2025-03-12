@@ -9,13 +9,13 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import moe.mukjep.fbsr.render.EntityRenderingTuple;
 import org.luaj.vm2.LuaValue;
 
 import com.demod.factorio.DataTable;
 import com.demod.factorio.prototype.EntityPrototype;
 import com.demod.fbsr.Direction;
 import com.demod.fbsr.EntityRendererFactory;
-import com.demod.fbsr.FBSR.EntityRenderingTuple;
 import com.demod.fbsr.FPUtils;
 import com.demod.fbsr.Layer;
 import com.demod.fbsr.RenderUtils;

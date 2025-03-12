@@ -27,12 +27,12 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import moe.mukjep.fbsr.render.TileRenderingTuple;
 import org.luaj.vm2.LuaValue;
 
 import com.demod.factorio.DataTable;
 import com.demod.factorio.FactorioData;
 import com.demod.factorio.prototype.TilePrototype;
-import com.demod.fbsr.FBSR.TileRenderingTuple;
 import com.demod.fbsr.bs.BSPosition;
 import com.demod.fbsr.bs.BSTile;
 import com.demod.fbsr.fp.FPMaterialTextureParameters;
@@ -401,7 +401,7 @@ public class TileRendererFactory {
 		Table<Integer, Integer, TileCell> tileMap = HashBasedTable.create();
 
 		// XXX should I also do render order (left to right, top to bottom)?
-		List<TileRenderingTuple> tileOrder = tiles.stream().sorted(Comparator.comparing(t -> t.factory.protoLayer))
+		List<TileRenderingTuple> tileOrder = tiles.stream().sorted(Comparator.comparing(t -> t.getFactory().protoLayer))
 				.collect(Collectors.toList());
 
 		// <layer, <row, col, cell>>
@@ -414,14 +414,14 @@ public class TileRendererFactory {
 		// Populate tile map
 		for (TileRenderingTuple tuple : tileOrder) {
 			TileCell cell = new TileCell();
-			BSPosition pos = tuple.tile.position;
+			BSPosition pos = tuple.getTile().position;
 			cell.row = (int) pos.y;
 			cell.col = (int) pos.x;
-			cell.layer = tuple.factory.protoLayer;
-			cell.mergeFactory = tuple.factory.protoTransitionMergesWithTile;
+			cell.layer = tuple.getFactory().protoLayer;
+			cell.mergeFactory = tuple.getFactory().protoTransitionMergesWithTile;
 			cell.mergeLayer = cell.mergeFactory.map(f -> OptionalInt.of(f.protoLayer)).orElse(OptionalInt.empty());
-			cell.tile = tuple.tile;
-			cell.factory = tuple.factory;
+			cell.tile = tuple.getTile();
+			cell.factory = tuple.getFactory();
 			tileMap.put(cell.row, cell.col, cell);
 			activeLayers.add(cell.layer);
 			cellLayers.put(cell.layer, cell);
@@ -429,7 +429,7 @@ public class TileRendererFactory {
 
 		// Populate edge maps
 		for (TileRenderingTuple tuple : tileOrder) {
-			BSPosition pos = tuple.tile.position;
+			BSPosition pos = tuple.getTile().position;
 			int row = (int) pos.y;
 			int col = (int) pos.x;
 			TileCell cell = tileMap.get(row, col);

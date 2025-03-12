@@ -22,9 +22,7 @@ import com.demod.factorio.TotalRawCalculator;
 import com.demod.factorio.prototype.DataPrototype;
 import com.demod.factorio.prototype.ItemPrototype;
 import com.demod.fbsr.EntityRendererFactory;
-import com.demod.fbsr.FBSR;
-import com.demod.fbsr.RenderRequest;
-import com.demod.fbsr.RenderResult;
+import moe.mukjep.fbsr.render.RenderRequest;
 import com.demod.fbsr.RenderUtils;
 import com.demod.fbsr.bs.BSBlueprint;
 import com.demod.fbsr.fp.FPSprite;
@@ -37,6 +35,8 @@ import com.demod.fbsr.gui.part.GUIImage;
 import com.demod.fbsr.gui.part.GUILabel;
 import com.demod.fbsr.gui.part.GUILabel.Align;
 import com.demod.fbsr.gui.part.GUIPanel;
+import moe.mukjep.fbsr.FBSR;
+import moe.mukjep.fbsr.render.RenderResult;
 
 public class GUILayoutBlueprint {
 
@@ -113,7 +113,7 @@ public class GUILayoutBlueprint {
 
 		this.result = FBSR.renderBlueprint(request);
 
-		GUIImage image = new GUIImage(bounds, result.image, true);
+		GUIImage image = new GUIImage(bounds, result.getImage(), true);
 		image.render(g);
 	}
 

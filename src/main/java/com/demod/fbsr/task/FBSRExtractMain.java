@@ -2,12 +2,11 @@ package com.demod.fbsr.task;
 
 import com.demod.dcba.CommandReporting;
 import com.demod.factorio.Config;
-import com.demod.factorio.FactorioData;
-import com.demod.fbsr.FBSR;
-import com.demod.fbsr.RenderRequest;
-import com.demod.fbsr.RenderResult;
+import moe.mukjep.fbsr.render.RenderRequest;
 import com.demod.fbsr.bs.BSBlueprint;
 import com.demod.fbsr.bs.BSBlueprintString;
+import moe.mukjep.fbsr.FBSR;
+import moe.mukjep.fbsr.render.RenderResult;
 import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
@@ -25,8 +24,6 @@ public class FBSRExtractMain {
 		config.setAccessible(true);
 		config.set(null, new JSONObject(Collections.singletonMap("factorio", "D:\\Program Files (x86)\\Steam\\steamapps\\common\\Factorio")));
 
-		// Prevent NPE
-		FactorioData.getTable();
 		FBSR.initialize();
 
 		CommandReporting commandReporting = new CommandReporting("Test author", "Test url", Instant.now());
@@ -40,7 +37,7 @@ public class FBSRExtractMain {
 		System.out.println(renderResult);
 
 		File outputFile = new File("D:\\test.png");
-		ImageIO.write(renderResult.image, "png", outputFile);
+		ImageIO.write(renderResult.getImage(), "png", outputFile);
 	}
 
 }

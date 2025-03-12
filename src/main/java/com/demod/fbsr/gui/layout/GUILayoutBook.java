@@ -16,9 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import com.demod.dcba.CommandReporting;
-import com.demod.fbsr.FBSR;
-import com.demod.fbsr.RenderRequest;
-import com.demod.fbsr.RenderResult;
+import moe.mukjep.fbsr.render.RenderRequest;
 import com.demod.fbsr.bs.BSBlueprint;
 import com.demod.fbsr.bs.BSBlueprintBook;
 import com.demod.fbsr.gui.GUIBox;
@@ -31,6 +29,8 @@ import com.demod.fbsr.gui.part.GUILabel.Align;
 import com.demod.fbsr.gui.part.GUIPanel;
 import com.google.common.collect.ArrayTable;
 import com.google.common.collect.Table;
+import moe.mukjep.fbsr.FBSR;
+import moe.mukjep.fbsr.render.RenderResult;
 
 public class GUILayoutBook {
 
@@ -295,9 +295,9 @@ public class GUILayoutBook {
 			RenderResult result = FBSR.renderBlueprint(request);
 			results.add(result);
 
-			int rows = (result.image.getHeight() + BP_CELL_SIZE.height - 1) / BP_CELL_SIZE.height;
-			int cols = (result.image.getWidth() + BP_CELL_SIZE.width - 1) / BP_CELL_SIZE.width;
-			blocks.add(new ImageBlock(rows, cols, blueprint.label, result.image));
+			int rows = (result.getImage().getHeight() + BP_CELL_SIZE.height - 1) / BP_CELL_SIZE.height;
+			int cols = (result.getImage().getWidth() + BP_CELL_SIZE.width - 1) / BP_CELL_SIZE.width;
+			blocks.add(new ImageBlock(rows, cols, blueprint.label, result.getImage()));
 		}
 
 		packBounds = packBlocks(blocks, DISCORD_IMAGE_RATIO);
