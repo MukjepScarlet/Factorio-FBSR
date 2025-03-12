@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import moe.mukjep.fbsr.bs.base.MapVersion;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.demod.factorio.Utils;
 import com.demod.fbsr.BSUtils;
-import com.demod.fbsr.MapVersion;
 import com.demod.fbsr.legacy.LegacyBlueprint;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
@@ -31,7 +31,7 @@ public class BSBlueprint {
 	public BSBlueprint(JSONObject json) {
 		version = new MapVersion(json.getLong("version"));
 
-		if (!version.greaterOrEquals(new MapVersion(2, 0, 0, 0))) {
+		if (version.compareTo(new MapVersion(2, 0, 0, 0)) < 0) {
 
 			LegacyBlueprint legacyBlueprint = new LegacyBlueprint(json);
 

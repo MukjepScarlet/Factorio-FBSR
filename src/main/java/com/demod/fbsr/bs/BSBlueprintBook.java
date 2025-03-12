@@ -7,10 +7,10 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.function.Consumer;
 
+import moe.mukjep.fbsr.bs.base.MapVersion;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
-import com.demod.fbsr.MapVersion;
 
 public class BSBlueprintBook {
 	public final Optional<String> label;

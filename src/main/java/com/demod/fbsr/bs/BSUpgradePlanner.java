@@ -3,10 +3,10 @@ package com.demod.fbsr.bs;
 import java.util.List;
 import java.util.Optional;
 
+import moe.mukjep.fbsr.bs.base.MapVersion;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
-import com.demod.fbsr.MapVersion;
 import com.google.common.collect.ImmutableList;
 
 public class BSUpgradePlanner {
