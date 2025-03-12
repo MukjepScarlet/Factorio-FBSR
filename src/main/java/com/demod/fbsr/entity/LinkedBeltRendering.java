@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
@@ -20,7 +21,6 @@ import com.demod.fbsr.WorldMap.BeltBend;
 import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.entity.LinkedBeltRendering.BSLinkedBeltEntity;
 import com.demod.fbsr.fp.FPSprite4Way;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public class LinkedBeltRendering extends TransportBeltConnectableRendering<BSLinkedBeltEntity> {
 
@@ -36,7 +36,7 @@ public class LinkedBeltRendering extends TransportBeltConnectableRendering<BSLin
 		public BSLinkedBeltEntity(LegacyBlueprintEntity legacy) {
 			super(legacy);
 
-			type = BSUtils.optString(legacy.json(), "type");
+			type = BSUtils.optString(legacy.getJson(), "type");
 		}
 
 	}

@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 
 import com.demod.factorio.DataTable;
@@ -28,7 +29,6 @@ import com.demod.fbsr.WorldMap;
 import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.bs.BSInfinitySettings;
 import com.demod.fbsr.entity.InfinityContainerRendering.BSInfinityContainerEntity;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public class InfinityContainerRendering extends ContainerRendering<BSInfinityContainerEntity> {
 	public static class BSInfinityContainerEntity extends BSEntity {
@@ -43,10 +43,10 @@ public class InfinityContainerRendering extends ContainerRendering<BSInfinityCon
 		public BSInfinityContainerEntity(LegacyBlueprintEntity legacy) {
 			super(legacy);
 
-			if (legacy.json().has("infinity_settings")
-					&& legacy.json().getJSONObject("infinity_settings").has("filters")) {
+			if (legacy.getJson().has("infinity_settings")
+					&& legacy.getJson().getJSONObject("infinity_settings").has("filters")) {
 				List<String> items = new ArrayList<>();
-				Utils.<JSONObject>forEach(legacy.json().getJSONObject("infinity_settings").getJSONArray("filters"),
+				Utils.<JSONObject>forEach(legacy.getJson().getJSONObject("infinity_settings").getJSONArray("filters"),
 						j -> {
 							if (j.getInt("count") > 0)
 								items.add(j.getString("name"));

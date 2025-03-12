@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
@@ -17,7 +18,6 @@ import com.demod.fbsr.WorldMap;
 import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.bs.BSEntityRequestFilters;
 import com.demod.fbsr.entity.LogisticContainerRendering.BSLogisticContainerEntity;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public class LogisticContainerRendering extends ContainerRendering<BSLogisticContainerEntity> {
 
@@ -33,7 +33,7 @@ public class LogisticContainerRendering extends ContainerRendering<BSLogisticCon
 		public BSLogisticContainerEntity(LegacyBlueprintEntity legacy) {
 			super(legacy);
 
-			List<String> outputs = BSUtils.list(legacy.json(), "request_filters", j -> j.getString("name"));
+			List<String> outputs = BSUtils.list(legacy.getJson(), "request_filters", j -> j.getString("name"));
 			if (outputs.isEmpty()) {
 				requestFilters = Optional.empty();
 			} else {

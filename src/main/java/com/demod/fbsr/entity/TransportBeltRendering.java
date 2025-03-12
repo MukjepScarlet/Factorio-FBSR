@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
@@ -24,7 +25,6 @@ import com.demod.fbsr.bs.BSControlBehavior;
 import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.entity.TransportBeltRendering.BSTransportBeltEntity;
 import com.demod.fbsr.fp.FPAnimationVariations;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public class TransportBeltRendering extends TransportBeltConnectableRendering<BSTransportBeltEntity> {
 
@@ -42,7 +42,7 @@ public class TransportBeltRendering extends TransportBeltConnectableRendering<BS
 
 			// TODO need to figure out what is important here
 			// constructing with empty json object on purpose
-			controlBehavior = BSUtils.opt(legacy.json(), "connections", j -> new BSControlBehavior(new JSONObject()));
+			controlBehavior = BSUtils.opt(legacy.getJson(), "connections", j -> new BSControlBehavior(new JSONObject()));
 		}
 	}
 

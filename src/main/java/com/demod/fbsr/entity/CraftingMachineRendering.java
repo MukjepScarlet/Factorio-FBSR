@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
@@ -25,7 +26,6 @@ import com.demod.fbsr.entity.CraftingMachineRendering.BSCraftingMachineEntity;
 import com.demod.fbsr.fp.FPFluidBox;
 import com.demod.fbsr.fp.FPPipeConnectionDefinition;
 import com.demod.fbsr.fp.FPWorkingVisualisations;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 import com.google.common.collect.ImmutableList;
 
 public abstract class CraftingMachineRendering extends SimpleEntityRendering<BSCraftingMachineEntity> {
@@ -44,7 +44,7 @@ public abstract class CraftingMachineRendering extends SimpleEntityRendering<BSC
 		public BSCraftingMachineEntity(LegacyBlueprintEntity legacy) {
 			super(legacy);
 
-			recipe = BSUtils.optString(legacy.json(), "recipe");
+			recipe = BSUtils.optString(legacy.getJson(), "recipe");
 			mirror = false;
 		}
 

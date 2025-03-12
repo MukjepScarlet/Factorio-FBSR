@@ -2,9 +2,8 @@ package com.demod.fbsr.bs;
 
 import java.util.Optional;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
-
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public class BSMetaEntity extends BSEntity {
 

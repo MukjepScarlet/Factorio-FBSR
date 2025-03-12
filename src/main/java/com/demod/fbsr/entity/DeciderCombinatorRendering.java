@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
@@ -11,7 +12,6 @@ import com.demod.fbsr.bs.BSConditionOutput;
 import com.demod.fbsr.bs.BSDeciderCondition;
 import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.entity.DeciderCombinatorRendering.BSDeciderCombinatorEntity;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 import com.google.common.collect.ImmutableList;
 
 public class DeciderCombinatorRendering extends CombinatorRendering<BSDeciderCombinatorEntity> {
@@ -38,7 +38,7 @@ public class DeciderCombinatorRendering extends CombinatorRendering<BSDeciderCom
 
 			playerDescription = Optional.empty();
 
-			String comparatorString = legacy.json().getJSONObject("control_behavior")
+			String comparatorString = legacy.getJson().getJSONObject("control_behavior")
 					.getJSONObject("decider_conditions").getString("comparator");
 			deciderConditions = Optional.of(new BSDeciderConditions(comparatorString));
 		}

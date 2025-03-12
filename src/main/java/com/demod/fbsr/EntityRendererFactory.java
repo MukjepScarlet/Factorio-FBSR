@@ -24,6 +24,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
@@ -112,7 +113,6 @@ import com.demod.fbsr.entity.TransportBeltRendering;
 import com.demod.fbsr.entity.UndergroundBeltRendering;
 import com.demod.fbsr.entity.WallRendering;
 import com.demod.fbsr.fp.FPBoundingBox;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 import com.google.common.collect.LinkedHashMultiset;
 import com.google.common.collect.Multiset;
 

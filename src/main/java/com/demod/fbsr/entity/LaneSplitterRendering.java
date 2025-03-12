@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 
 import com.demod.factorio.DataTable;
@@ -31,7 +32,6 @@ import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.bs.BSFilter;
 import com.demod.fbsr.entity.LaneSplitterRendering.BSSplitterEntity;
 import com.demod.fbsr.fp.FPAnimation4Way;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public class LaneSplitterRendering extends TransportBeltConnectableRendering<BSSplitterEntity> {
 
@@ -51,10 +51,10 @@ public class LaneSplitterRendering extends TransportBeltConnectableRendering<BSS
 		public BSSplitterEntity(LegacyBlueprintEntity legacy) {
 			super(legacy);
 
-			inputPriority = BSUtils.optString(legacy.json(), "input_priority");
-			outputPriority = BSUtils.optString(legacy.json(), "output_priority");
+			inputPriority = BSUtils.optString(legacy.getJson(), "input_priority");
+			outputPriority = BSUtils.optString(legacy.getJson(), "output_priority");
 
-			filter = BSUtils.optString(legacy.json(), "filter").map(s -> new BSFilter(s));
+			filter = BSUtils.optString(legacy.getJson(), "filter").map(s -> new BSFilter(s));
 		}
 	}
 

@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.OptionalDouble;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
 import com.demod.fbsr.Direction;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 import com.google.common.collect.ImmutableMap;
 
 public class BSEntity {
@@ -81,18 +81,18 @@ public class BSEntity {
 
 	public BSEntity(LegacyBlueprintEntity legacy) {
 
-		entityNumber = legacy.id;
+		entityNumber = legacy.getId();
 
-		String name = legacy.name;
+		String name = legacy.getName();
 		name = LEGACY_NAME_CONVERT.getOrDefault(name, name);
 		this.name = name;
-		Point2D.Double pos = legacy.position;
+		Point2D.Double pos = legacy.getPosition();
 		position = new BSPosition(pos.x, pos.y);
-		direction = legacy.direction.toNewDirection();
+		direction = legacy.getDirection().toNewDirection();
 		directionRaw = direction.ordinal() * 2;
 		orientation = OptionalDouble.empty();
 
-		JSONObject json = legacy.json();
+		JSONObject json = legacy.getJson();
 
 		items = BSUtils.list(json, "items", j -> new BSItemStack(j.getString("item"), j.getInt("count")));
 	}

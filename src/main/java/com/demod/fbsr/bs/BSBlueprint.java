@@ -5,12 +5,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import moe.mukjep.fbsr.bs.base.MapVersion;
+import moe.mukjep.fbsr.legacy.LegacyBlueprint;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.demod.factorio.Utils;
 import com.demod.fbsr.BSUtils;
-import com.demod.fbsr.legacy.LegacyBlueprint;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
@@ -36,11 +36,11 @@ public class BSBlueprint {
 			LegacyBlueprint legacyBlueprint = new LegacyBlueprint(json);
 
 			// TODO look at older blueprints and see if I can extract more info
-			label = legacyBlueprint.label;
+			label = legacyBlueprint.getLabel();
 			description = Optional.empty();
 			icons = ImmutableList.of();
-			entities = legacyBlueprint.entities.stream().map(e -> new BSMetaEntity(e)).collect(Collectors.toList());
-			tiles = legacyBlueprint.tiles.stream().map(e -> new BSTile(e)).collect(Collectors.toList());
+			entities = legacyBlueprint.getEntities().stream().map(e -> new BSMetaEntity(e)).collect(Collectors.toList());
+			tiles = legacyBlueprint.getTiles().stream().map(e -> new BSTile(e)).collect(Collectors.toList());
 			schedules = ImmutableList.of();
 			parameters = ImmutableList.of();
 			snapToGrid = Optional.empty();

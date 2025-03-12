@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
@@ -31,7 +32,6 @@ import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.bs.BSFilter;
 import com.demod.fbsr.entity.LoaderRendering.BSLoaderEntity;
 import com.demod.fbsr.fp.FPSprite4Way;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public abstract class LoaderRendering extends TransportBeltConnectableRendering<BSLoaderEntity> {
 
@@ -49,8 +49,8 @@ public abstract class LoaderRendering extends TransportBeltConnectableRendering<
 		public BSLoaderEntity(LegacyBlueprintEntity legacy) {
 			super(legacy);
 
-			type = BSUtils.optString(legacy.json(), "type");
-			filters = BSUtils.list(legacy.json(), "filters", j -> new BSFilter(j.getString("name")));
+			type = BSUtils.optString(legacy.getJson(), "type");
+			filters = BSUtils.list(legacy.getJson(), "filters", j -> new BSFilter(j.getString("name")));
 		}
 
 	}

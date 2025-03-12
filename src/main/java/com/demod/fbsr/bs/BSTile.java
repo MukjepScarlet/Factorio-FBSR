@@ -2,10 +2,10 @@ package com.demod.fbsr.bs;
 
 import java.awt.geom.Point2D;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintTile;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
-import com.demod.fbsr.legacy.LegacyBlueprintTile;
 
 public class BSTile {
 	public final BSPosition position;
@@ -17,8 +17,8 @@ public class BSTile {
 	}
 
 	public BSTile(LegacyBlueprintTile legacy) {
-		Point2D.Double pos = legacy.position;
+		Point2D.Double pos = legacy.getPosition();
 		position = new BSPosition(pos.x, pos.y);
-		name = legacy.name;
+		name = legacy.getName();
 	}
 }

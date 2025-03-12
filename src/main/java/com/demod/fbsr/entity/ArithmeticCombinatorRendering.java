@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalDouble;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
@@ -11,7 +12,6 @@ import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.bs.BSNetworkPorts;
 import com.demod.fbsr.bs.BSSignalID;
 import com.demod.fbsr.entity.ArithmeticCombinatorRendering.BSArithmeticCombinatorEntity;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public class ArithmeticCombinatorRendering extends CombinatorRendering<BSArithmeticCombinatorEntity> {
 
@@ -38,7 +38,7 @@ public class ArithmeticCombinatorRendering extends CombinatorRendering<BSArithme
 
 			playerDescription = Optional.empty();
 
-			String operationString = legacy.json().getJSONObject("control_behavior")
+			String operationString = legacy.getJson().getJSONObject("control_behavior")
 					.getJSONObject("arithmetic_conditions").getString("operation");
 			arithmeticConditions = Optional.of(new BSArithmeticConditions(operationString));
 		}

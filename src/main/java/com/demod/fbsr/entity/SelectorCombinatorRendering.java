@@ -4,12 +4,12 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalInt;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
 import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.entity.SelectorCombinatorRendering.BSSelectorCombinatorEntity;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public class SelectorCombinatorRendering extends CombinatorRendering<BSSelectorCombinatorEntity> {
 

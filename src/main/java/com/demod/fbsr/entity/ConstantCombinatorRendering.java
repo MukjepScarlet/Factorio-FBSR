@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
@@ -14,7 +15,6 @@ import com.demod.fbsr.WirePoints.WireColor;
 import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.entity.ConstantCombinatorRendering.BSConstantCombinatorEntity;
 import com.demod.fbsr.fp.FPWireConnectionPoint;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public class ConstantCombinatorRendering extends SimpleEntityRendering<BSConstantCombinatorEntity> {
 

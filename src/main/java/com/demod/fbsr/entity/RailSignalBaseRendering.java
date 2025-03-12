@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
@@ -24,7 +25,6 @@ import com.demod.fbsr.fp.FPAnimation;
 import com.demod.fbsr.fp.FPBoundingBox;
 import com.demod.fbsr.fp.FPRotatedAnimation;
 import com.demod.fbsr.fp.FPVector;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public abstract class RailSignalBaseRendering extends EntityRendererFactory<BSRailSignalBaseEntity> {
 

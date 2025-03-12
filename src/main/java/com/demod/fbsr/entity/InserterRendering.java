@@ -14,6 +14,7 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
@@ -39,7 +40,6 @@ import com.demod.fbsr.entity.InserterRendering.BSInserterEntity;
 import com.demod.fbsr.fp.FPSprite;
 import com.demod.fbsr.fp.FPSprite4Way;
 import com.demod.fbsr.fp.FPVector;
-import com.demod.fbsr.legacy.LegacyBlueprintEntity;
 
 public class InserterRendering extends SimpleEntityRendering<BSInserterEntity> {
 
@@ -61,16 +61,16 @@ public class InserterRendering extends SimpleEntityRendering<BSInserterEntity> {
 		public BSInserterEntity(LegacyBlueprintEntity legacy) {
 			super(legacy);
 
-			pickupPosition = BSUtils.opt(legacy.json(), "pickup_position", j -> {
+			pickupPosition = BSUtils.opt(legacy.getJson(), "pickup_position", j -> {
 				Point2D.Double pos = Utils.parsePoint2D(j);
 				return new BSPosition(pos.x, pos.y);
 			});
-			dropPosition = BSUtils.opt(legacy.json(), "drop_position", j -> {
+			dropPosition = BSUtils.opt(legacy.getJson(), "drop_position", j -> {
 				Point2D.Double pos = Utils.parsePoint2D(j);
 				return new BSPosition(pos.x, pos.y);
 			});
 
-			filters = BSUtils.list(legacy.json(), "filters", j -> new BSFilter(j.getString("name")));
+			filters = BSUtils.list(legacy.getJson(), "filters", j -> new BSFilter(j.getString("name")));
 			useFilters = filters.size() > 0;
 		}
 	}
