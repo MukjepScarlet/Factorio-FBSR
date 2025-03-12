@@ -8,6 +8,8 @@ import java.util.*;
 import java.util.zip.InflaterInputStream;
 
 import moe.mukjep.fbsr.bs.types.BSBlueprint;
+import moe.mukjep.fbsr.bs.types.BSDeconstructionPlanner;
+import moe.mukjep.fbsr.bs.types.BSUpgradePlanner;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
