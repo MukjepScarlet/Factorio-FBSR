@@ -4,14 +4,9 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.OptionalInt;
+import java.util.*;
 import java.util.zip.InflaterInputStream;
 
-import org.apache.commons.codec.binary.Base64;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
@@ -37,7 +32,7 @@ public class BSBlueprintString {
 			throw new IllegalArgumentException("Malformed blueprint string!");
 		}
 
-		byte[] decoded = Base64.decodeBase64(blueprintString.substring(1));
+		byte[] decoded = Base64.getDecoder().decode(blueprintString.substring(1));
 		JSONObject json;
 		try (BufferedReader br = new BufferedReader(
 				new InputStreamReader(new InflaterInputStream(new ByteArrayInputStream(decoded)), Charsets.UTF_8))) {
