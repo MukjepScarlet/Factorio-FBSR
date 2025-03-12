@@ -22,14 +22,14 @@ class RenderRequest(var blueprint: BSBlueprint, var reporting: CommandReporting)
         var gridAboveBelts: Boolean = false,
     )
 
-    var maxWidth: OptionalInt = OptionalInt.empty()
-    var maxHeight: OptionalInt = OptionalInt.empty()
-    var minWidth: OptionalInt = OptionalInt.empty()
-    var minHeight: OptionalInt = OptionalInt.empty()
-    var maxScale: OptionalDouble = OptionalDouble.empty()
+    var maxWidth: Int = Int.MAX_VALUE
+    var maxHeight: Int = Int.MAX_VALUE
+    var minWidth: Int = 0
+    var minHeight: Int = 0
+    var maxScale: Double = 1.0
 
-    var background: Optional<Color> = Optional.of(GROUND_COLOR)
-    var gridLines: Optional<Color> = Optional.of(GRID_COLOR)
+    var background: Color? = GROUND_COLOR
+    var gridLines: Color? = GRID_COLOR
 
     val debug: Debug = Debug()
     val show: Show = Show()

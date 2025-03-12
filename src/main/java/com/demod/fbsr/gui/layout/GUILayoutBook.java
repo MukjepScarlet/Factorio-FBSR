@@ -284,13 +284,13 @@ public class GUILayoutBook {
 			int maxHeight = (int) (BP_IMAGE_MAX.height * renderScale);
 
 			RenderRequest request = new RenderRequest(blueprint, reporting);
-			request.setMinWidth(OptionalInt.of(minWidth));
-			request.setMinHeight(OptionalInt.of(minHeight));
-			request.setMaxWidth(OptionalInt.of(maxWidth));
-			request.setMaxHeight(OptionalInt.of(maxHeight));
-			request.setBackground(Optional.empty());
-			request.setGridLines(Optional.empty());
-			request.setMaxScale(OptionalDouble.of(0.5));
+			request.setMinWidth(minWidth);
+			request.setMinHeight(minHeight);
+			request.setMaxWidth(maxWidth);
+			request.setMaxHeight(maxHeight);
+			request.setBackground(null);
+			request.setGridLines(null);
+			request.setMaxScale(0.5);
 
 			RenderResult result = FBSR.renderBlueprint(request);
 			results.add(result);

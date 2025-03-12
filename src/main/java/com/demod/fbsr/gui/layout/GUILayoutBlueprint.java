@@ -103,13 +103,12 @@ public class GUILayoutBlueprint {
 		int renderHeight = (int) (bounds.height * xform.getScaleY());
 
 		RenderRequest request = new RenderRequest(blueprint, reporting);
-		request.setMinWidth(OptionalInt.of(renderWidth));
-		request.setMinHeight(OptionalInt.of(renderHeight));
-		request.setMaxWidth(OptionalInt.of(renderWidth));
-		request.setMaxHeight(OptionalInt.of(renderHeight));
-		request.setMaxScale(OptionalDouble.of(2.0));
-		request.setBackground(Optional.empty());
-		request.setGridLines(Optional.of(GUIStyle.FONT_BP_COLOR.darker().darker()));
+		request.setMinWidth(renderWidth);
+		request.setMinHeight(renderHeight);
+		request.setMaxWidth(renderWidth);
+		request.setMaxHeight(renderHeight);
+		request.setMaxScale(2.0);
+		request.setBackground(null);
 
 		this.result = FBSR.renderBlueprint(request);
 

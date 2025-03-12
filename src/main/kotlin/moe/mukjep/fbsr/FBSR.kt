@@ -669,8 +669,8 @@ object FBSR {
             }
         }
 
-        val gridPadding = (if ((!request.gridLines.isEmpty && request.show.gridNumbers)) 1 else 0).toDouble()
-        val gridRound = if ((!request.gridLines.isEmpty && request.show.gridNumbers)) 0.6 else 0.2
+        val gridPadding = if ((request.gridLines != null && request.show.gridNumbers)) 1.0 else 0.0
+        val gridRound = if ((request.gridLines != null && request.show.gridNumbers)) 0.6 else 0.2
         val worldPadding = 0.5
 
         val visualBounds = computeBounds(renderers, true)
@@ -695,18 +695,14 @@ object FBSR {
             max(visualBounds.maxY, gridBounds.maxY) + worldPadding
         )
 
-        var worldRenderScale = 1.0
+        // Max scale limit
+        var worldRenderScale = request.maxScale
 
         val gridPlatformMode = map.isSpacePlatform && !request.show.gridNumbers
 
-        // Max scale limit
-        if (request.maxScale.isPresent) {
-            worldRenderScale = request.maxScale.asDouble
-        }
-
         // Shrink down the scale to fit the max requirements
-        val maxWidthPixels = request.maxWidth.orElse(Int.MAX_VALUE)
-        val maxHeightPixels = request.maxHeight.orElse(Int.MAX_VALUE)
+        val maxWidthPixels = request.maxWidth
+        val maxHeightPixels = request.maxHeight
         val maxPixels =
             min(MAX_WORLD_RENDER_PIXELS.toDouble(), (maxWidthPixels.toLong() * maxHeightPixels.toLong()).toDouble())
                 .toLong()
@@ -727,8 +723,8 @@ object FBSR {
         }
 
         // Expand the world to fit the min requirements
-        val minWidthPixels = request.minWidth.orElse(0)
-        val minHeightPixels = request.minHeight.orElse(0)
+        val minWidthPixels = request.minWidth
+        val minHeightPixels = request.minHeight
 
         if ((worldBounds.getWidth() * worldRenderScale * TILE_SIZE) < minWidthPixels) {
             val padding = ((minWidthPixels - (worldBounds.getWidth() * worldRenderScale * TILE_SIZE))
@@ -788,8 +784,8 @@ object FBSR {
         shadowG.transform = worldXform
 
         // Background
-        if (request.background.isPresent) {
-            g.color = request.background.get()
+        request.background?.let {
+            g.color = it
             g.fill(worldBounds)
         }
 
@@ -801,13 +797,13 @@ object FBSR {
         }
 
         // Grid Lines
-        if (request.gridLines.isPresent && !gridTooSmall) {
+        if (request.gridLines != null && !gridTooSmall) {
             if (gridPlatformMode) {
                 renderers.add(object : Renderer(gridLayer, gridBounds, true) {
                     @Throws(Exception::class)
                     override fun render(g: Graphics2D) {
                         g.stroke = GRID_STROKE
-                        g.color = request.gridLines.get()
+                        g.color = request.gridLines!!
                         val rect = Rectangle2D.Double(0.0, 0.0, 1.0, 1.0)
                         for (tuple in tileRenderingTuples) {
                             val pos = tuple.tile.position
@@ -822,7 +818,7 @@ object FBSR {
                     @Throws(Exception::class)
                     override fun render(g: Graphics2D) {
                         g.stroke = GRID_STROKE
-                        g.color = request.gridLines.get()
+                        g.color = request.gridLines!!
                         var x = (Math.round(gridBounds.minX) + 1).toDouble()
                         while (x <= gridBounds.maxX - 1) {
                             g.draw(Line2D.Double(x, gridBounds.minY, x, gridBounds.maxY))
@@ -876,12 +872,12 @@ object FBSR {
             val b1 = r11.bounds
             val b2 = r21.bounds
 
-            ret = java.lang.Double.compare(b1.minY, b2.minY)
+            ret = b1.minY.compareTo(b2.minY)
             if (ret != 0) {
                 return@sorted ret
             }
 
-            ret = java.lang.Double.compare(b1.minX, b2.minX)
+            ret = b1.minX.compareTo(b2.minX)
             if (ret != 0) {
                 return@sorted ret
             }
@@ -904,12 +900,12 @@ object FBSR {
         g.transform = worldXform
 
         // Grid Numbers
-        if (request.gridLines.isPresent && request.show.gridNumbers && !gridTooSmall) {
-            g.color = request.gridLines.get()
+        if (request.gridLines != null && request.show.gridNumbers && !gridTooSmall) {
+            g.color = request.gridLines!!
             g.font = GUIStyle.FONT_BP_REGULAR.deriveFont(0.6f)
             val tx = 0.18f
             val ty = 0.68f
-            val gridColor = request.gridLines.get()
+            val gridColor = request.gridLines!!
             g.color = gridColor
             run {
                 var x = (Math.round(gridBounds.minX) + 1).toDouble()
