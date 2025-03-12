@@ -470,8 +470,7 @@ object FBSR {
     @JvmStatic
     // FIXME the generic type checking is all screwed up
     fun renderBlueprint(request: RenderRequest): RenderResult {
-        val blueprint = request.blueprint
-        val reporting = request.reporting
+        val (blueprint, reporting) = request
 
         println("Rendering " + blueprint.label.orElse("Untitled Blueprint") + " " + blueprint.version)
         val startMillis = System.currentTimeMillis()

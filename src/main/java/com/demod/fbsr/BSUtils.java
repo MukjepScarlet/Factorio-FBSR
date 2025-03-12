@@ -7,6 +7,7 @@ import java.util.OptionalInt;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+import moe.mukjep.fbsr.bs.base.ItemQuality;
 import org.json.JSONObject;
 
 import com.demod.factorio.Utils;

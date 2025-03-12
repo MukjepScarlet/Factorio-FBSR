@@ -6,7 +6,7 @@ import java.util.OptionalInt;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
-import com.demod.fbsr.ItemQuality;
+import moe.mukjep.fbsr.bs.base.ItemQuality;
 
 public class BSFilter {
 	public final int index;

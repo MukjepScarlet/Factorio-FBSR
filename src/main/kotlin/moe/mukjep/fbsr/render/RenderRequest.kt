@@ -4,9 +4,8 @@ import com.demod.dcba.CommandReporting
 import com.demod.fbsr.bs.BSBlueprint
 import com.demod.fbsr.gui.GUIStyle
 import java.awt.Color
-import java.util.*
 
-class RenderRequest(var blueprint: BSBlueprint, var reporting: CommandReporting) {
+data class RenderRequest(val blueprint: BSBlueprint, val reporting: CommandReporting) {
     data class Debug(
         var pathItems: Boolean = false,
         var pathRails: Boolean = false,
