@@ -9,8 +9,6 @@ import java.io.IOException
 import java.util.*
 import kotlin.jvm.optionals.getOrNull
 
-sealed interface BSType
-
 class BSBlueprintString(json: JSONObject) {
 
     val index: OptionalInt = BSUtils.optInt(json, "index")
