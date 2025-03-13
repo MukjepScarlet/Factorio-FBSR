@@ -29,6 +29,7 @@ import java.util.stream.IntStream;
 
 import moe.mukjep.fbsr.bs.base.Direction;
 import moe.mukjep.fbsr.render.Layer;
+import moe.mukjep.fbsr.render.Renderer;
 import moe.mukjep.fbsr.render.TileRenderingTuple;
 import org.luaj.vm2.LuaValue;
 
@@ -323,10 +324,10 @@ public class TileRendererFactory {
 				@Override
 				public void render(Graphics2D g) {
 					g.setColor(RenderUtils.withAlpha(Color.getHSBColor(randomFactor, 0.6f, 0.4f), 128));
-					g.fill(new Ellipse2D.Double(bounds.x, bounds.y, bounds.width, bounds.height));
+					g.fill(new Ellipse2D.Double(getBounds().x, getBounds().y, getBounds().width, getBounds().height));
 					g.setColor(Color.gray);
 					g.setFont(new Font("Monospaced", Font.BOLD, 1).deriveFont(0.5f));
-					g.drawString("?", (float) bounds.getCenterX() - 0.125f, (float) bounds.getCenterY() + 0.15f);
+					g.drawString("?", (float) getBounds().getCenterX() - 0.125f, (float) getBounds().getCenterY() + 0.15f);
 				}
 			});
 			register.accept(new Renderer(Layer.ENTITY_INFO_TEXT, bounds, false) {
@@ -334,8 +335,8 @@ public class TileRendererFactory {
 				public void render(Graphics2D g) {
 					if (labeledTypes.add(tile.name)) {
 						g.setFont(g.getFont().deriveFont(0.4f));
-						float textX = (float) bounds.x;
-						float textY = (float) (bounds.y + bounds.height * randomFactor);
+						float textX = (float) getBounds().x;
+						float textY = (float) (getBounds().y + getBounds().height * randomFactor);
 						g.setColor(Color.darkGray);
 						g.drawString(tile.name, textX + 0.05f, textY + 0.05f);
 						g.setColor(Color.white);

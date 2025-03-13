@@ -14,7 +14,7 @@ import com.demod.factorio.DataTable;
 import com.demod.factorio.prototype.EntityPrototype;
 import com.demod.fbsr.FPUtils;
 import com.demod.fbsr.RenderUtils;
-import com.demod.fbsr.Renderer;
+import moe.mukjep.fbsr.render.Renderer;
 import com.demod.fbsr.WirePoints;
 import com.demod.fbsr.WirePoints.WireColor;
 import com.demod.fbsr.WorldMap;

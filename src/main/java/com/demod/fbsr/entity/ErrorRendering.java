@@ -12,7 +12,7 @@ import com.demod.factorio.DataTable;
 import com.demod.factorio.prototype.EntityPrototype;
 import com.demod.fbsr.EntityRendererFactory;
 import moe.mukjep.fbsr.render.Layer;
-import com.demod.fbsr.Renderer;
+import moe.mukjep.fbsr.render.Renderer;
 import com.demod.fbsr.WirePoints.WirePoint;
 import com.demod.fbsr.WorldMap;
 import com.demod.fbsr.bs.BSEntity;
@@ -40,10 +40,10 @@ public class ErrorRendering extends EntityRendererFactory<BSEntity> {
 			@Override
 			public void render(Graphics2D g) {
 				g.setColor(Color.red);
-				g.fill(bounds);
+				g.fill(getBounds());
 				g.setColor(Color.white);
 				g.setFont(new Font("Monospaced", Font.BOLD, 1).deriveFont(1f));
-				g.drawString("!", (float) bounds.getCenterX() - 0.25f, (float) bounds.getCenterY() + 0.3f);
+				g.drawString("!", (float) getBounds().getCenterX() - 0.25f, (float) getBounds().getCenterY() + 0.3f);
 			}
 		});
 	}

@@ -28,6 +28,7 @@ import moe.mukjep.fbsr.bs.base.Direction;
 import moe.mukjep.fbsr.render.EntityRenderingTuple;
 import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import moe.mukjep.fbsr.render.Layer;
+import moe.mukjep.fbsr.render.Renderer;
 import org.json.JSONObject;
 import org.luaj.vm2.LuaValue;
 
@@ -120,65 +121,65 @@ import com.google.common.collect.Multiset;
 
 public abstract class EntityRendererFactory<E extends BSEntity> {
 
-	public static final EntityRendererFactory<BSEntity> UNKNOWN = new EntityRendererFactory<BSEntity>() {
-		Set<String> labeledTypes = new HashSet<>();
+	public static final EntityRendererFactory<BSEntity> UNKNOWN = new EntityRendererFactory<>() {
+        Set<String> labeledTypes = new HashSet<>();
 
-		@Override
-		public void createModuleIcons(Consumer<Renderer> register, WorldMap map, DataTable table, BSEntity entity) {
-		}
+        @Override
+        public void createModuleIcons(Consumer<Renderer> register, WorldMap map, DataTable table, BSEntity entity) {
+        }
 
-		@Override
-		public void createRenderers(Consumer<Renderer> register, WorldMap map, DataTable dataTable, BSEntity entity) {
-			Point2D.Double pos = entity.position.createPoint();
-			Rectangle2D.Double bounds = new Rectangle2D.Double(pos.x - 0.5, pos.y - 0.5, 1.0, 1.0);
-			register.accept(new Renderer(Layer.ENTITY_INFO_ICON_ABOVE, bounds, false) {
-				@Override
-				public void render(Graphics2D g) {
-					g.setColor(RenderUtils.withAlpha(getUnknownColor(entity.name), 128));
-					g.fill(new Ellipse2D.Double(bounds.x, bounds.y, bounds.width, bounds.height));
-					g.setColor(Color.gray);
-					g.setFont(new Font("Monospaced", Font.BOLD, 1).deriveFont(1f));
-					g.drawString("?", (float) bounds.getCenterX() - 0.25f, (float) bounds.getCenterY() + 0.3f);
-				}
-			});
-			register.accept(new Renderer(Layer.ENTITY_INFO_TEXT, bounds, false) {
-				@Override
-				public void render(Graphics2D g) {
-					if (labeledTypes.add(entity.name)) {
-						g.setFont(new Font("Monospaced", Font.BOLD, 1).deriveFont(0.4f));
-						float textX = (float) bounds.x;
-						float textY = (float) (bounds.y
-								+ bounds.height * new Random(entity.name.hashCode()).nextFloat());
-						g.setColor(Color.darkGray);
-						g.drawString(entity.name, textX + 0.05f, textY + 0.05f);
-						g.setColor(Color.white);
-						g.drawString(entity.name, textX, textY);
-					}
-				}
-			});
-		}
+        @Override
+        public void createRenderers(Consumer<Renderer> register, WorldMap map, DataTable dataTable, BSEntity entity) {
+            Point2D.Double pos = entity.position.createPoint();
+            Rectangle2D.Double bounds = new Rectangle2D.Double(pos.x - 0.5, pos.y - 0.5, 1.0, 1.0);
+            register.accept(new Renderer(Layer.ENTITY_INFO_ICON_ABOVE, bounds, false) {
+                @Override
+                public void render(Graphics2D g) {
+                    g.setColor(RenderUtils.withAlpha(getUnknownColor(entity.name), 128));
+                    g.fill(new Ellipse2D.Double(getBounds().x, getBounds().y, getBounds().width, getBounds().height));
+                    g.setColor(Color.gray);
+                    g.setFont(new Font("Monospaced", Font.BOLD, 1).deriveFont(1f));
+                    g.drawString("?", (float) getBounds().getCenterX() - 0.25f, (float) getBounds().getCenterY() + 0.3f);
+                }
+            });
+            register.accept(new Renderer(Layer.ENTITY_INFO_TEXT, bounds, false) {
+                @Override
+                public void render(Graphics2D g) {
+                    if (labeledTypes.add(entity.name)) {
+                        g.setFont(new Font("Monospaced", Font.BOLD, 1).deriveFont(0.4f));
+                        float textX = (float) getBounds().x;
+                        float textY = (float) (getBounds().y
+                                + getBounds().height * new Random(entity.name.hashCode()).nextFloat());
+                        g.setColor(Color.darkGray);
+                        g.drawString(entity.name, textX + 0.05f, textY + 0.05f);
+                        g.setColor(Color.white);
+                        g.drawString(entity.name, textX, textY);
+                    }
+                }
+            });
+        }
 
-		@Override
-		public Optional<WirePoint> createWirePoint(Consumer<Renderer> register, Point2D.Double position,
-				double orientation, int connectionId) {
-			return Optional.empty();
-		}
+        @Override
+        public Optional<WirePoint> createWirePoint(Consumer<Renderer> register, Point2D.Double position,
+                                                   double orientation, int connectionId) {
+            return Optional.empty();
+        }
 
-		@Override
-		public void initFromPrototype(DataTable dataTable, EntityPrototype prototype) {
-		}
+        @Override
+        public void initFromPrototype(DataTable dataTable, EntityPrototype prototype) {
+        }
 
-		@Override
-		public void populateLogistics(WorldMap map, DataTable dataTable, BSEntity entity) {
-		}
+        @Override
+        public void populateLogistics(WorldMap map, DataTable dataTable, BSEntity entity) {
+        }
 
-		@Override
-		public void populateWorldMap(WorldMap map, DataTable dataTable, BSEntity entity) {
-			if (!labeledTypes.isEmpty()) {
-				labeledTypes.clear();
-			}
-		}
-	};
+        @Override
+        public void populateWorldMap(WorldMap map, DataTable dataTable, BSEntity entity) {
+            if (!labeledTypes.isEmpty()) {
+                labeledTypes.clear();
+            }
+        }
+    };
 
 	@SuppressWarnings("rawtypes")
 	private static final Map<String, EntityRendererFactory> byName = new LinkedHashMap<>();

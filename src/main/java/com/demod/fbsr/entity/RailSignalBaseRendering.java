@@ -16,7 +16,7 @@ import com.demod.fbsr.EntityRendererFactory;
 import com.demod.fbsr.FPUtils;
 import moe.mukjep.fbsr.render.Layer;
 import com.demod.fbsr.RenderUtils;
-import com.demod.fbsr.Renderer;
+import moe.mukjep.fbsr.render.Renderer;
 import com.demod.fbsr.Sprite;
 import com.demod.fbsr.WorldMap;
 import com.demod.fbsr.bs.BSEntity;

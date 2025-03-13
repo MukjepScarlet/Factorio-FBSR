@@ -67,7 +67,7 @@ object FBSR {
         var maxX = 0.0
         var maxY = 0.0
         for (renderer in renderers) {
-            if (!includeIgnoredBounds && renderer.ignoreBoundsCalculation()) {
+            if (!includeIgnoredBounds && renderer.isIgnoreBoundsCalculation) {
                 continue
             }
             val bounds = renderer.bounds
@@ -860,35 +860,17 @@ object FBSR {
         })
 
         val debugBounds = request.debug.entityPlacement
-        renderers.stream().sorted { r11: Renderer, r21: Renderer ->
-
-            var ret = r11.layer.compareTo(r21.layer)
-            if (ret != 0) {
-                return@sorted ret
-            }
-
-            val b1 = r11.bounds
-            val b2 = r21.bounds
-
-            ret = b1.minY.compareTo(b2.minY)
-            if (ret != 0) {
-                return@sorted ret
-            }
-
-            ret = b1.minX.compareTo(b2.minX)
-            if (ret != 0) {
-                return@sorted ret
-            }
-
-            ret = r11.layer.compareTo(r21.layer)
-            ret
-        }.forEach { r4: Renderer ->
+        renderers.sortedWith(
+            Comparator.comparing(Renderer::layer)
+                .thenComparingDouble { it.bounds.minY }
+                .thenComparingDouble { it.bounds.minX }
+        ).forEach { r4: Renderer ->
             try {
                 r4.render(g)
 
                 if (debugBounds) {
                     g.stroke = BasicStroke(1f / TILE_SIZE.toFloat())
-                    g.color = if (r4.ignoreBoundsCalculation()) Color.gray else Color.magenta
+                    g.color = if (r4.isIgnoreBoundsCalculation) Color.gray else Color.magenta
                     g.draw(r4.bounds)
                 }
             } catch (e: Exception) {

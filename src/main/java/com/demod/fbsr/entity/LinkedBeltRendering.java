@@ -14,7 +14,7 @@ import com.demod.fbsr.BSUtils;
 import moe.mukjep.fbsr.bs.base.Direction;
 import moe.mukjep.fbsr.render.Layer;
 import com.demod.fbsr.RenderUtils;
-import com.demod.fbsr.Renderer;
+import moe.mukjep.fbsr.render.Renderer;
 import com.demod.fbsr.Sprite;
 import com.demod.fbsr.WorldMap;
 import com.demod.fbsr.WorldMap.BeltBend;

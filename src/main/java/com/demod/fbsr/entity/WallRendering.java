@@ -12,7 +12,7 @@ import com.demod.factorio.DataTable;
 import com.demod.factorio.prototype.EntityPrototype;
 import moe.mukjep.fbsr.bs.base.Direction;
 import com.demod.fbsr.RenderUtils;
-import com.demod.fbsr.Renderer;
+import moe.mukjep.fbsr.render.Renderer;
 import com.demod.fbsr.WorldMap;
 import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.fp.FPSprite4Way;

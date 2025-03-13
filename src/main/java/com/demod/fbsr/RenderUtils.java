@@ -20,7 +20,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import moe.mukjep.fbsr.FBSR;
+import moe.mukjep.fbsr.render.EntityRenderer;
 import moe.mukjep.fbsr.render.Layer;
+import moe.mukjep.fbsr.render.Renderer;
 import org.json.JSONObject;
 
 import com.demod.factorio.DataTable;
@@ -70,7 +72,7 @@ public final class RenderUtils {
 	}
 
 	public static Renderer createWireRenderer(Point2D.Double p1, Point2D.Double p2, Color color, Point2D.Double shadow1,
-			Point2D.Double shadow2) {
+											  Point2D.Double shadow2) {
 		Rectangle2D.Double bounds = new Rectangle2D.Double();
 		bounds.setFrameFromDiagonal(p1, p2);
 
@@ -127,8 +129,8 @@ public final class RenderUtils {
 				AffineTransform pat = g.getTransform();
 
 				g.setFont(new Font("Monospaced", Font.BOLD, 1).deriveFont(0.4f));
-				float textX = (float) bounds.x;
-				float textY = (float) bounds.y;
+				float textX = (float) getBounds().x;
+				float textY = (float) getBounds().y;
 
 				g.translate(textX, textY);
 				g.rotate(angle);
@@ -152,8 +154,8 @@ public final class RenderUtils {
 			@Override
 			public void render(Graphics2D g) {
 				g.setFont(new Font("Monospaced", Font.BOLD, 1).deriveFont(0.4f));
-				float textX = (float) bounds.x;
-				float textY = (float) bounds.y;
+				float textX = (float) getBounds().x;
+				float textY = (float) getBounds().y;
 				g.setColor(Color.darkGray);
 				g.drawString(string, textX + 0.05f, textY + 0.05f);
 				g.setColor(color);
