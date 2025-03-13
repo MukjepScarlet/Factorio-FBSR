@@ -5,7 +5,12 @@ import moe.mukjep.fbsr.bs.types.BSBlueprint
 import moe.mukjep.fbsr.gui.GUIStyle
 import java.awt.Color
 
-data class RenderRequest(val blueprint: BSBlueprint, val reporting: CommandReporting) {
+data class RenderRequest(
+    val blueprint: BSBlueprint,
+    val reporting: CommandReporting,
+    val debug: Debug = Debug(),
+    val show: Show = Show(),
+) {
     data class Debug(
         var pathItems: Boolean = false,
         var pathRails: Boolean = false,
@@ -29,9 +34,6 @@ data class RenderRequest(val blueprint: BSBlueprint, val reporting: CommandRepor
 
     var background: Color? = GROUND_COLOR
     var gridLines: Color? = GRID_COLOR
-
-    val debug: Debug = Debug()
-    val show: Show = Show()
 
     companion object {
         private val GROUND_COLOR = Color(40, 40, 40)
