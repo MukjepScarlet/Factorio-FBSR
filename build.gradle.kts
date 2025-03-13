@@ -1,7 +1,11 @@
 plugins {
     java
     kotlin("jvm") version "2.1.10"
+    `maven-publish`
 }
+
+group = "moe.mukjep.fbsr"
+version = "0.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -28,4 +32,23 @@ kotlin {
     jvmToolchain(11)
 
     compilerOptions.freeCompilerArgs.add("-Xjsr305=strict")
+}
+
+tasks.jar {
+    archiveBaseName = "fbsr"
+    manifest {
+        attributes["Implementation-Title"] = project.name
+        attributes["Implementation-Version"] = version
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
 }
