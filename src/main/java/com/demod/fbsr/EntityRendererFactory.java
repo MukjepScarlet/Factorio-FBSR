@@ -121,8 +121,8 @@ import com.google.common.collect.Multiset;
 
 public abstract class EntityRendererFactory<E extends BSEntity> {
 
-	public static final EntityRendererFactory<BSEntity> UNKNOWN = new EntityRendererFactory<>() {
-        Set<String> labeledTypes = new HashSet<>();
+	public static final EntityRendererFactory<BSEntity> UNKNOWN = new EntityRendererFactory<BSEntity>() {
+        final Set<String> labeledTypes = new HashSet<>();
 
         @Override
         public void createModuleIcons(Consumer<Renderer> register, WorldMap map, DataTable table, BSEntity entity) {
