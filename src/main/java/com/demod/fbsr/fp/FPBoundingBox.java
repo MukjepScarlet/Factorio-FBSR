@@ -4,7 +4,7 @@ import java.awt.geom.Rectangle2D;
 
 import org.luaj.vm2.LuaValue;
 
-import com.demod.fbsr.Direction;
+import moe.mukjep.fbsr.bs.base.Direction;
 
 public class FPBoundingBox {
 	public final FPVector leftTop;

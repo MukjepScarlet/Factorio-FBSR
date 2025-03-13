@@ -1,6 +1,6 @@
 package moe.mukjep.fbsr.legacy
 
-import com.demod.fbsr.Direction
+import moe.mukjep.fbsr.bs.base.Direction
 import org.json.JSONObject
 
 enum class LegacyDirection {

@@ -1,5 +1,7 @@
 package com.demod.fbsr;
 
+import moe.mukjep.fbsr.bs.base.Direction;
+
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;

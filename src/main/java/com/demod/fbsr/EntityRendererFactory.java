@@ -24,6 +24,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
+import moe.mukjep.fbsr.bs.base.Direction;
 import moe.mukjep.fbsr.render.EntityRenderingTuple;
 import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import moe.mukjep.fbsr.render.Layer;
@@ -359,7 +360,7 @@ public abstract class EntityRendererFactory<E extends BSEntity> {
 	private Class<E> entityClass;
 
 	protected void addLogisticWarp(WorldMap map, Point2D.Double gridPos1, Direction cellDir1, Point2D.Double gridPos2,
-			Direction cellDir2) {
+								   Direction cellDir2) {
 		map.getOrCreateLogisticGridCell(cellDir1.offset(gridPos1, 0.25)).addWarp(cellDir2.offset(gridPos2, 0.25));
 	}
 

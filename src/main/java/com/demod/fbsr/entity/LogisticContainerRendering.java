@@ -13,7 +13,7 @@ import org.luaj.vm2.LuaValue;
 
 import com.demod.factorio.DataTable;
 import com.demod.fbsr.BSUtils;
-import com.demod.fbsr.Direction;
+import moe.mukjep.fbsr.bs.base.Direction;
 import com.demod.fbsr.WorldMap;
 import com.demod.fbsr.bs.BSEntity;
 import com.demod.fbsr.bs.BSEntityRequestFilters;

@@ -9,7 +9,7 @@ import moe.mukjep.fbsr.legacy.LegacyBlueprintEntity;
 import org.json.JSONObject;
 
 import com.demod.fbsr.BSUtils;
-import com.demod.fbsr.Direction;
+import moe.mukjep.fbsr.bs.base.Direction;
 import com.google.common.collect.ImmutableMap;
 
 public class BSEntity {

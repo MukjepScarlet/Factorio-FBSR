@@ -3,7 +3,7 @@ package com.demod.fbsr.entity;
 import org.luaj.vm2.LuaValue;
 
 import com.demod.factorio.DataTable;
-import com.demod.fbsr.Direction;
+import moe.mukjep.fbsr.bs.base.Direction;
 import com.demod.fbsr.WorldMap;
 import com.demod.fbsr.bs.BSEntity;
 

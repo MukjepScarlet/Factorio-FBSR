@@ -3,7 +3,7 @@ package com.demod.fbsr.entity;
 import java.awt.geom.Point2D;
 
 import com.demod.factorio.DataTable;
-import com.demod.fbsr.Direction;
+import moe.mukjep.fbsr.bs.base.Direction;
 import com.demod.fbsr.WorldMap;
 
 public class RailSignalRendering extends RailSignalBaseRendering {

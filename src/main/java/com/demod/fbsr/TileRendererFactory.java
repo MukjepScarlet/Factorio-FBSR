@@ -1,6 +1,6 @@
 package com.demod.fbsr;
 
-import static com.demod.fbsr.Direction.*;
+import static moe.mukjep.fbsr.bs.base.Direction.*;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -27,6 +27,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import moe.mukjep.fbsr.bs.base.Direction;
 import moe.mukjep.fbsr.render.Layer;
 import moe.mukjep.fbsr.render.TileRenderingTuple;
 import org.luaj.vm2.LuaValue;

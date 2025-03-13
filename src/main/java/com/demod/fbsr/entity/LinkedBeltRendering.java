@@ -11,7 +11,7 @@ import org.luaj.vm2.LuaValue;
 import com.demod.factorio.DataTable;
 import com.demod.factorio.prototype.EntityPrototype;
 import com.demod.fbsr.BSUtils;
-import com.demod.fbsr.Direction;
+import moe.mukjep.fbsr.bs.base.Direction;
 import moe.mukjep.fbsr.render.Layer;
 import com.demod.fbsr.RenderUtils;
 import com.demod.fbsr.Renderer;

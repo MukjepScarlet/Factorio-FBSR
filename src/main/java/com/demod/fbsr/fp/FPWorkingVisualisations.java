@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 
 import org.luaj.vm2.LuaValue;
 
-import com.demod.fbsr.Direction;
+import moe.mukjep.fbsr.bs.base.Direction;
 import com.demod.fbsr.FPUtils;
 import com.demod.fbsr.Sprite;
 

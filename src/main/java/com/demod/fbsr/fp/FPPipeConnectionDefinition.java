@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.luaj.vm2.LuaValue;
 
-import com.demod.fbsr.Direction;
+import moe.mukjep.fbsr.bs.base.Direction;
 import com.demod.fbsr.FPUtils;
 
 public class FPPipeConnectionDefinition {

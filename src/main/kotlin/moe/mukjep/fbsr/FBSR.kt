@@ -10,6 +10,7 @@ import com.demod.fbsr.bs.*
 import com.demod.fbsr.entity.ErrorRendering
 import com.demod.fbsr.gui.GUIStyle
 import com.google.common.collect.Table
+import moe.mukjep.fbsr.bs.base.Direction
 import moe.mukjep.fbsr.bs.types.BSBlueprint
 import moe.mukjep.fbsr.render.*
 import org.json.JSONException
