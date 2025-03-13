@@ -1,13 +1,12 @@
 package moe.mukjep.fbsr.bs.types
 
 import com.demod.fbsr.BSUtils
-import com.demod.fbsr.bs.BSBlueprintString
 import com.demod.fbsr.bs.BSIcon
 import moe.mukjep.fbsr.bs.base.MapVersion
 import org.json.JSONObject
 import java.util.*
 
-class BSBlueprintBook(json: JSONObject) : BSBase() {
+class BSBlueprintBook(json: JSONObject) : BSType {
     val label: Optional<String> = BSUtils.optString(json, "label")
     val version: MapVersion = MapVersion(json.getInt("version").toLong())
     val description: Optional<String> = BSUtils.optString(json, "description")

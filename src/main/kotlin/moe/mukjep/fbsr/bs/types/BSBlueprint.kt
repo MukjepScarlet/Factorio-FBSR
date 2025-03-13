@@ -8,7 +8,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
 
-class BSBlueprint(json: JSONObject) : BSBase() {
+class BSBlueprint(json: JSONObject) : BSType {
     val label: Optional<String>
     val version: MapVersion = MapVersion(json.getLong("version"))
     val description: Optional<String>
