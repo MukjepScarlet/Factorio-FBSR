@@ -2,7 +2,7 @@ package moe.mukjep.fbsr.render
 
 import com.demod.dcba.CommandReporting
 import moe.mukjep.fbsr.bs.types.BSBlueprint
-import com.demod.fbsr.gui.GUIStyle
+import moe.mukjep.fbsr.gui.GUIStyle
 import java.awt.Color
 
 data class RenderRequest(val blueprint: BSBlueprint, val reporting: CommandReporting) {

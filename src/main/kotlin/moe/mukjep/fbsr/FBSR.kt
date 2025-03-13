@@ -8,7 +8,7 @@ import com.demod.fbsr.*
 import com.demod.fbsr.WorldMap.RailEdge
 import com.demod.fbsr.bs.*
 import com.demod.fbsr.entity.ErrorRendering
-import com.demod.fbsr.gui.GUIStyle
+import moe.mukjep.fbsr.gui.GUIStyle
 import com.google.common.collect.Table
 import moe.mukjep.fbsr.bs.base.Direction
 import moe.mukjep.fbsr.bs.types.BSBlueprint
